@@ -21,4 +21,6 @@ jobs:
           echo "Github ref: $GITHUB_REF"
           echo "Github event: $GITHUB_EVENT_NAME"
           echo "Variable de projet: $VAR_PROJECT"
+          echo "Variable de projet: ${{ vars.VAR_PROJECT }}"
           echo "Secret de projet: $SECRET_PROJECT"
+          echo "Secret de projet: ${{secrets.SECRET_PROJECT }}"
