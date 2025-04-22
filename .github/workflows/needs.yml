@@ -10,6 +10,8 @@ jobs:
   build-and-test:
     name: Build & test
     runs-on: ubuntu-latest
+    outputs:
+      result-build-and-test: "L'execution du job build-and-test c'est bien passée"
 
     steps:
       - uses: actions/checkout@v4
@@ -21,6 +23,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo "test e2e"
+      - run: echo "confirmation=Je confirme e2e c'est bien passé" >> $GITHUB_OUTPUT
+        id: test-e2e
+    outputs:
+      result-test-e2e: ${{ steps.test-e2e.outputs.confirmation }}
 
   deploy:
     name: Deploy
@@ -33,3 +39,7 @@ jobs:
       - name: Deploy to production
         if: github.ref_name == 'main'
         run: echo "🚀 Deploying to PRODUCITON environment"
+      - name: rapport tests
+        run: |
+          echo "build-and-test-output: ${{ needs.build-and-test.outputs.result-build-and-test }}"
+          echo "test-e2e-output: ${{ needs.test-e2e.outputs.result-test-e2e }}"
