@@ -1,0 +1,17 @@
+name: Test création fichier
+on: push
+
+jobs:
+  test-creation:
+    runs-on: ubuntu-latest
+    steps:
+      - run: whoami
+      - uses: actions/checkout@v4
+      - run: mkdir mon_dossier
+      - run: echo "Ceci est un fichier de test" > mon_dossier/fichier.txt
+      - run: ls && ls mon_dossier
+  verifier-persistence:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: ls
