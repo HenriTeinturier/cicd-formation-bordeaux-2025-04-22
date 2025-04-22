@@ -1,0 +1,29 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+      - dev
+
+jobs:
+  build-and-test:
+    name: Build & test
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+      - run: npm install
+      - run: npm run test:ci
+
+  deploy:
+    name: Deploy
+    runs-on: uuntu-latest
+    steps:
+      - name: Deploy to Development
+        if: github.ref_name == 'dev'
+        run: echo "🚀 Deploying to DEVELOPMENT environment'
+      - name: Deploy to production
+        if: github.ref_name == 'main'
+        run: echo "🚀 Deploying to PRODUCITON environment"
