@@ -9,6 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       VAR_FROM_JOB: from job
+      VAR_FROM_WORKFLOW: "En fait je viens du step"
     steps:
       - name: les variables
         env:
@@ -17,3 +18,7 @@ jobs:
           echo "Var depuis workflow: $VAR_FROM_WORKFLOW"
           echo "Var depuis le job: $VAR_FROM_JOB"
           echo "Var depuis step: $VAR_FROM_STEP"
+          echo "Github ref: $GITHUB_REF"
+          echo "Github event: $GITHUB_EVENT_NAME"
+          echo "Variable de projet: $VAR_PROJECT"
+          echo "Secret de projet: $SECRET_PROJECT"
