@@ -1,0 +1,31 @@
+# Informations sur le projet
+name: MonProjet
+version: "1.0.0"
+description: |
+  Ce projet est une application web qui permet de gérer des tâches.
+  Il inclut des fonctionnalités de création, modification et suppression de tâches.
+
+# Dépendances
+dependencies:
+  express: "4.17.1"
+  mongoose: "5.10.9"
+  dotenv: "8.2.0"
+
+# Configuration de l'environnement
+env:
+  NODE_ENV: development
+  PORT: 3000
+
+# Scripts de démarrage
+scripts:
+  start: "node server.js"
+
+# Paramètres simples
+parametres:
+  performance: 75
+  database:
+    url: null
+  configurations:
+    - "test"
+    - production
+    - staging
