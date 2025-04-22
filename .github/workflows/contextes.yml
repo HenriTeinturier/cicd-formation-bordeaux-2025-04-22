@@ -9,7 +9,8 @@ jobs:
   test-variables:
     runs-on: ubuntu-latest
     steps:
-      - name: ${{ env.VAR_FROM_WORKFLOW }}
+      # pas possible d"utiliser en dehors du run $NAME_STEP
+      - name: ${{ env.NAME_STEP }}
         run: |
           echo "Var depuis workflow: $VAR_FROM_WORKFLOW"
           echo "Var depuis workflow: ${{ env.VAR_FROM_WORKFLOW }} "
