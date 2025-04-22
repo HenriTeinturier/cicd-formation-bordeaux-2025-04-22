@@ -1,0 +1,19 @@
+name: variables tests
+on: push
+
+env:
+  VAR_FROM_WORKFLOW: "from workflow"
+
+jobs:
+  test-variables:
+    runs-on: ubuntu-latest
+    env:
+      VAR_FROM_JOB: from job
+    steps:
+      - name: les variables
+        env:
+          VAR_FROM_STEP: "from step"
+        run: |
+          echo "Var depuis workflow: $VAR_FROM_WORKFLOW"
+          echo "Var depuis le job: $VAR_FROM_JOB"
+          echo "Var depuis step: $VAR_FROM_STEP"
