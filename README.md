@@ -21,11 +21,14 @@
 
 ## Application de support
 
-Pour l'exercice 4.8 (Mini application), vous pouvez utiliser cette [application TodoList](https://github.com/HenriTeinturier/cicd-formation-lyon-31-03-todolist) comme support si vous avez besoin d'aide pour créer rapidement une application. Cette application React est déjà configurée avec :
+Pour l'exercice 4.8 (Mini application), vous pouvez utiliser cette [application TodoList](https://github.com/HenriTeinturier/todolist-github-action-starter/tree/main) comme support si vous avez besoin d'aide pour créer rapidement une application. Cette application React est déjà configurée avec :
 
 - Tests unitaires (Vitest + React Testing Library)
 - Configuration ESLint
 - Structure de projet complète
+
+Voici le lien de la correction du support pour notre session de formation:
+[cicd-formation-bordeaux-2025-04-todolist](https://github.com/HenriTeinturier/cicd-formation-lyon-31-03-todolist)
 
 ### Projet avancé CI/CD
 
