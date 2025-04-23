@@ -19,7 +19,7 @@ jobs:
       - name: Ouverture PR
         if: github.event_name == 'pull_request' && github.event.action == 'opened'
         run: |
-          echo: "Un nouveau reptile est proposé"
+          echo "Un nouveau reptile est proposé"
 
       - name: Traitement des PR - Modification
         if: github.event_name == 'pull_request' && github.event.action == 'edited'
