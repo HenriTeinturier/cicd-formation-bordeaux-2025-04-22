@@ -1,0 +1,33 @@
+name: test backup
+on:
+  workflow_run:
+    workflows: ["backup database"]
+    types:
+      - completed
+
+jobs:
+  test-backup:
+    runs-on: ubuntu-latest
+    steps:
+      - if: ${{ github.event.workflow_run.conclusion == 'success' }}
+        name: test backup
+        run: echo"✅ Backup réussi ! Je lance les tests."
+# Autres valeurs possibles pour `conclusion` :
+
+# - `success` ✅
+# - `failure` ❌
+# - `cancelled` 🛑
+# - `timed_out` ⏱️
+# - `skipped` ⏭️
+# - `action_required` ⚠️
+
+# github.event.workflow_run.id                 # ID du workflow run déclencheur
+# github.event.workflow_run.name               # Nom du workflow déclencheur (ex: "backup database")
+# github.event.workflow_run.head_branch        # Nom de la branche sur laquelle le workflow déclencheur a tourné
+# github.event.workflow_run.head_sha           # SHA du commit
+# github.event.workflow_run.conclusion         # Résultat final : success, failure, cancelled...
+# github.event.workflow_run.status             # Statut : completed, in_progress, etc.
+# github.event.workflow_run.event              # Type d'événement déclencheur initial (ex: push, pull_request, etc.)
+# github.event.workflow_run.repository.full_name # nom complet du repo (ex: henriteinturier/mon-projet)
+# github.event.workflow_run.head_repository.full_name # nom complet du *repo source* (utile pour les forks)
+# github.event.workflow_run.actor.login        # L'utilisateur qui a déclenché le workflow
