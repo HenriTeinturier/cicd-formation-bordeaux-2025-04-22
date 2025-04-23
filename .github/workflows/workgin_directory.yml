@@ -1,0 +1,26 @@
+name: workgin directoyr
+
+on: push
+
+defaults:
+  run:
+    shell: sh
+    working-directory: ./frontend
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Pour faire notre test on récupère le code
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # On installe node
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+
+      # On installe les dépendances
+      - name: Install dependencies
+        run: npm install
+        working-directory: ./frontend
