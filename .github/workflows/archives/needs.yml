@@ -55,8 +55,8 @@ jobs:
           echo "build-and-test-output: ${{ needs.build-and-test.outputs.result-build-and-test }}"
           echo "test-e2e-output: ${{ needs.test-e2e.outputs.result-test-e2e }}"
           echo "isProductionReady=true" >> $GITHUB_ENV
-      - name: rapport final
+      - if: ${{ env.isProductionReady }} == 'true'
+        name: rapport final
         run: |
           echo "rapport final: ${{ env.isProductionReady}}" 
           echo "Rapport final identique: $isProductionReady"
-        if: ${{ env.isProductionReady }} == 'true'
