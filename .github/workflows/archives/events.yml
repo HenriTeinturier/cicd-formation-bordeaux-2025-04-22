@@ -1,0 +1,23 @@
+name: Events
+on:
+  push:
+    branches:
+      - "main"
+      - "feature"
+    paths-ignore:
+      - "doc/**"
+    tags:
+      - "v1"
+    # branches:
+    #   - main
+    #   - '!feature'
+    # paths:
+    #   - "./hello.txt"
+    #   - "./src" # ici seul les modifications du dossier sont surveillées:
+    #   - "./src/**" # tous les fichiers dans src
+    #   - "*.js"  # tous les fichiers js à la racine
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo JOB DONE
