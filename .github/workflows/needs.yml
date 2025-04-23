@@ -11,6 +11,9 @@ jobs:
     name: Build & test
     runs-on: ubuntu-latest
     outputs:
+      # Je peux envoyer une donnée dans l'output du job
+      # Cette donnée sera récupérable dans les autres jobs
+      # Dans le contexte needs.
       result-build-and-test: "L'execution du job build-and-test c'est bien passée"
 
     steps:
@@ -23,6 +26,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo "test e2e"
+      # Je peux envoyer des données dans le contexte steps accessible partout dans le job
+      # via la variable GITHUB_OUTPUT
+      # Elle necessite que la step- est un id
+      # On pourra récupérer cette information dans l'output du job
+      # Pour passer ces données dans les autres jobs
       - run: echo "confirmation=Je confirme e2e c'est bien passé" >> $GITHUB_OUTPUT
         id: test-e2e
     outputs:
@@ -30,6 +38,8 @@ jobs:
 
   deploy:
     name: Deploy
+    # la propriété needs permet de specifier les jobs qui doivent être terminés
+    # Avant de commencer ce job.
     needs: [build-and-test, test-e2e]
     runs-on: ubuntu-latest
     steps:
@@ -38,8 +48,15 @@ jobs:
         run: echo "🚀 Deploying to DEVELOPMENT environment'
       - name: Deploy to production
         if: github.ref_name == 'main'
-        run: echo "🚀 Deploying to PRODUCITON environment"
+        run: echo "🚀 Deploying to PRODUCTION environment"
       - name: rapport tests
+        # On peut récupérer l'outputs des jobs précédents en utilisant le contexte needs.
         run: |
           echo "build-and-test-output: ${{ needs.build-and-test.outputs.result-build-and-test }}"
           echo "test-e2e-output: ${{ needs.test-e2e.outputs.result-test-e2e }}"
+          echo "isProductionReady=true" >> $GITHUB_ENV
+      - name: rapport final
+        run: |
+          echo "rapport final: ${{ env.isProductionReady}}" 
+          echo "Rapport final identique: $isProductionReady"
+        if: ${{ env.isProductionReady }} == 'true'

@@ -11,11 +11,12 @@
 3. [Exercice 3.6 - Premier Workflow CI/CD](documents/exercices/3.6%20Premiere%20workflow%20CICD/)
 4. [Exercice 3.8 - Enquête policière](documents/exercices/3.8%20Enquête%20policière/)
 5. [Exercice 3.9.5 - Zoo](documents/exercices/3.9.5_zoo/3.9.5_zoo.md)
-6. [Exercice 4.5 - Pizzeria](documents/exercices/4.5%20Pizzeria/)
-7. [Exercice 4.8 - Mini application](documents/exercices/4.8%20Mini%20application/)
-8. [Exercice 5.3 - Container Docker PostgreSQL](documents/exercices/5.3%20Container%20Docker%20PostgreSql/)
-9. [Exercice 7.8 - Workflow Réutilisable](documents/exercices/7.8_Workflow_reutilisable/)
-10. [Exercice 7.10 - Action Réutilisable](documents/exercices/7.10_action_reutilisation/)
+6. [Exercice 4.2.5 - Exploration spatiale](documents/exercices/4.2.5_exploration_spatiale/4.2.5_exploration_spatiale.md)
+7. [Exercice 4.5 - Pizzeria](documents/exercices/4.5%20Pizzeria/)
+8. [Exercice 4.8 - Mini application](documents/exercices/4.8%20Mini%20application/)
+9. [Exercice 5.3 - Container Docker PostgreSQL](documents/exercices/5.3%20Container%20Docker%20PostgreSql/)
+10. [Exercice 7.8 - Workflow Réutilisable](documents/exercices/7.8_Workflow_reutilisable/)
+11. [Exercice 7.10 - Action Réutilisable](documents/exercices/7.10_action_reutilisation/)
 
 ## Application de support
 
