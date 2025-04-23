@@ -6,18 +6,18 @@
 
 ## Sommaire des exercices
 
-1. [Exercice 1.4 - YAML](documents/exercices/1.4%20Yaml/)
-2. [Exercice 2.5 - Premier Workflow](documents/exercices/2.5%20Premiere%20workflow/)
-3. [Exercice 3.6 - Premier Workflow CI/CD](documents/exercices/3.6%20Premiere%20workflow%20CICD/)
-4. [Exercice 3.8 - Enquête policière](documents/exercices/3.8%20Enquête%20policière/)
+1. [Exercice 1.4 - YAML](documents/exercices/1.4%20Yaml/1.4-exercice-yaml.md)
+2. [Exercice 2.5 - Premier Workflow](documents/exercices/2.5%20Premiere%20workflow/2.5-exercice-premier-workflow.md)
+3. [Exercice 3.6 - Premier Workflow CI/CD](documents/exercices/3.6%20Premiere%20workflow%20CICD/3.6-exercice-1er-workflow-ci.md)
+4. [Exercice 3.8 - Enquête policière](documents/exercices/3.8%20Enquête%20policière/3.8-exercice-enquete.md)
 5. [Exercice 3.9.5 - Zoo](documents/exercices/3.9.5_zoo/3.9.5_zoo.md)
 6. [Exercice 4.2.5 - Exploration spatiale](documents/exercices/4.2.5_exploration_spatiale/4.2.5_exploration_spatiale.md)
 7. [Exercice 4.2.5 bonus - Matrix](documents/exercices/4.2.5.bonus_matrix/4.2.5.bonus_matrix.md)
-8. [Exercice 4.5 - Pizzeria](documents/exercices/4.5%20Pizzeria/)
-9. [Exercice 4.8 - Mini application](documents/exercices/4.8%20Mini%20application/)
-10. [Exercice 5.3 - Container Docker PostgreSQL](documents/exercices/5.3%20Container%20Docker%20PostgreSql/)
-11. [Exercice 7.8 - Workflow Réutilisable](documents/exercices/7.8_Workflow_reutilisable/)
-12. [Exercice 7.10 - Action Réutilisable](documents/exercices/7.10_action_reutilisation/)
+8. [Exercice 4.5 - Pizzeria](documents/exercices/4.5%20Pizzeria/4.5-pizzeria.md)
+9. [Exercice 4.8 - Mini application](documents/exercices/4.8%20Mini%20application/4.8-exercice-synthese.md)
+10. [Exercice 5.3 - Container Docker PostgreSQL](documents/exercices/5.3%20Container%20Docker%20PostgreSql/5.3-exercice-container-PostgreSQL.md)
+11. [Exercice 7.8 - Workflow Réutilisable](documents/exercices/7.8_Workflow_reutilisable/7.8-workflow-reutilisablr.md)
+12. [Exercice 7.10 - Action Réutilisable](documents/exercices/7.10_action_reutilisation/7.10_action_reutilisable.md)
 
 ## Application de support
 
