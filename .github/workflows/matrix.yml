@@ -5,18 +5,22 @@ jobs:
   build:
     runs-on: ubuntu-latest
     strategy:
+      max-parallel: 2
       matrix:
-        os: [ubuntu-latest, windows-latest]
+        os: [ubuntu-latest, windows-latest, macos-latest]
         node-version: [20, 22]
-        include:
+        exclude:
           - os: macos-latest
-            node-version: 24
-          - os: windows-latest
-            node-version: 24
-          - os: windows-latest
             node-version: 22
-            architecture: x86_64
+          - os: windows-latest
+        # include:
+        #   - os: macos-latest
+        #     node-version: 24
+        #   - os: windows-latest
+        #     node-version: 24
+        #   - os: windows-latest
+        #     node-version: 22
+        #     architecture: x86_64
     steps:
       - run: |
           echo "Running ${{ matrix.os }} with node ${{ matrix.node-version }}"
-          echo "Architecture: ${{ matrix.architecture || 'default' }}"
