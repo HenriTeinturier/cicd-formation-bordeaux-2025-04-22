@@ -1,0 +1,46 @@
+name: cache
+
+on: push
+
+defaults:
+  run:
+    working-directory: ./frontend
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Pour faire notre test on récupère le code
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # On installe node
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+
+      - name: Get npm cache directory
+        id: npm-cache-dir
+        shell: bash
+        run: echo "dir=$(npm config get cache)" >> ${GITHUB_OUTPUT}
+
+      - name: Cache depencies
+        uses: actions/cache@v4
+        id: npm-cache
+        with:
+          path: ${{ steps.npm-cache-dir.outputs.dir }}
+          key: ${{ runner.os }}-node-${{ hashfiles('**/package-lock.json')}}
+          restore-keys: |
+            ${{runner.os }}-node-
+
+      - name: display cache statut
+        run: |
+          if [ "${{ steps.npm-cache.outputs.cache-hit }}" == "true" ]; then
+            echo "✅ cache récupéré"
+          else
+            echo "❌ pas de cache récupéré"
+          fi
+
+      # On installe les dépendances
+      - name: Install dependencies
+        run: npm ci
