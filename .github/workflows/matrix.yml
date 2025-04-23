@@ -8,5 +8,15 @@ jobs:
       matrix:
         os: [ubuntu-latest, windows-latest]
         node-version: [20, 22]
+        include:
+          - os: macos-latest
+            node-version: 24
+          - os: windows-latest
+            node-version: 24
+          - os: windows-latest
+            node-version: 22
+            architecture: x86_64
     steps:
-      - run: echo "Running ${{ matrix.os }} with node ${{ matrix.node-version }}"
+      - run: |
+          echo "Running ${{ matrix.os }} with node ${{ matrix.node-version }}"
+          echo "Architecture: ${{ matrix.architecture || 'default' }}"
