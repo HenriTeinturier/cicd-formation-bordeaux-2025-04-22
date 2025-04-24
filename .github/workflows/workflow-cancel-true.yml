@@ -1,6 +1,8 @@
-name: Concurrency test
+name: workflow cancel true
 
-on: workflow_dispatch
+on:
+  # Permet de déclencher manuellement le workflow
+  workflow_dispatch:
 
 concurrency:
   group: concurrency-test-group
@@ -13,7 +15,9 @@ jobs:
     steps:
       - name: Début du workflow
         run: echo "🚀 Workflow démarré"
-      - name: Attente de 1 minutes
-        run: sleep 60
+
+      - name: Attente de 2 minutes
+        run: sleep 120
+
       - name: Fin du workflow
         run: echo "✅ Workflow terminé"
