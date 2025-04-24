@@ -4,7 +4,17 @@ on: push
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - run: |
           echo "GITHUB_TOKEN: $GITHUB_TOKEN"
           echo "Contexte secrets: ${{ secrets.GITHUB_TOKEN }}"
+      - run: actions/checkout@v4
+      - run: |
+          echo 123 > test3.txt
+          git config --global user.email "action@github.com"
+          git config --global user.name "GitHub Action"
+          git add .
+          git commit -m "Add test.txt"
+          git push origin main
