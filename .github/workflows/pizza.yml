@@ -1,0 +1,72 @@
+name: PizzaCI - Système de Gestion Pizzeria
+
+on:
+  workflow_dispatch:
+    inputs:
+      nom_client:
+        description: "Nom du client"
+        required: true
+      pizzas:
+        description: |
+          Liste des pizzas au format JSON. Attention aux points importants:
+          - Utilisez des guillemets doubles
+          - Entourez la liste avec []
+          Exemple: ["margherita","reine","calzone"]
+        required: true
+
+jobs:
+  reception-commande:
+    name: Reception de Commande
+    runs-on: ubuntu-latest
+    steps:
+      - name: Accueil client
+        run: |
+          echo "Bonjour ${{ github.event.inputs.nom_client }}"
+          echo "Votre commande avec les pizzas ${{ github.event.inputs.pizzas }} a bien été reçue."
+    outputs:
+      pizzas: ${{ github.event.inputs.pizzas }}
+
+  cuisine:
+    needs: reception-commande
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        pizza: ${{ fromJSON(needs.reception-commande.outputs.pizzas) }}
+        taille: ["L", "XL"]
+        include:
+          # Pizza bonus en taille L
+          - pizza: "pizza-dessert"
+            taille: "L"
+    steps:
+      - name: Préparation
+        run: echo "Préparation pizza ${{ matrix.pizza }} en taille ${{ matrix.taille }}"
+
+  livraison:
+    needs: cuisine
+    runs-on: ubuntu-latest
+    concurrency:
+      group: zone-livraison
+      cancel-in-progress: true
+    steps:
+      - name: Préparation livraison
+        run: |
+          echo "Préparation de la livraison pour ${{ github.event.inputs.nom_client }}"
+          echo "Pizzas à livrer : ${{ github.event.inputs.pizzas }}"
+
+      - name: Temps de livraison
+        run: |
+          echo "Le livreur est en route..."
+          sleep 60 
+          echo "Livraison effectuée !"
+
+  reclamation:
+    needs: livraison
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Création reclamation
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh issue create --tile "Réclamation client" --body "🔥 Pizzas livrées froides !"
