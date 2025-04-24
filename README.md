@@ -28,7 +28,7 @@ Pour l'exercice 4.8 (Mini application), vous pouvez utiliser cette [application 
 - Structure de projet complète
 
 Voici le lien de la correction du support pour notre session de formation:
-[cicd-formation-bordeaux-2025-04-todolist](https://github.com/HenriTeinturier/cicd-formation-lyon-31-03-todolist)
+[cicd-formation-bordeaux-2025-04-todolist](https://github.com/HenriTeinturier/cicd-formation-bordeaux-2025-04-todolist)
 
 ### Projet avancé CI/CD
 
