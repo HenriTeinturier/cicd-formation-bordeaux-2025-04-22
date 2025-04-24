@@ -16,8 +16,8 @@
 8. [Exercice 4.5 - Pizzeria](documents/exercices/4.5%20Pizzeria/4.5-pizzeria.md)
 9. [Exercice 4.8 - Mini application](documents/exercices/4.8%20Mini%20application/4.8-exercice-synthese.md)
 10. [Exercice 5.3 - Container Docker PostgreSQL](documents/exercices/5.3%20Container%20Docker%20PostgreSql/5.3-exercice-container-PostgreSQL.md)
-11. [Exercice 8.1 - Workflow Réutilisable](documents/exercices/8.1_Workflow_reutilisable/8.1-workflow-reutilisablr.md-workflow-reutilisablr.md)
-12. [Exercice 8.3 - Action Réutilisable](documents/exercices/8.3_action_reutilisation/8.3_action_reutilisable.md_action_reutilisable.md)
+11. [Exercice 8.1 - Workflow Réutilisable](documents/exercices/8.1_Workflow_reutilisable/8.1-workflow-reutilisablr.md)
+12. [Exercice 8.3 - Action Réutilisable](documents/exercices/8.3_action_reutilisation/8.3_action_reutilisable.md)
 
 ## Application de support
 
