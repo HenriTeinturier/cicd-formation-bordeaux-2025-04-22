@@ -36,3 +36,25 @@ jobs:
           echo "Activité principale : ${{ matrix.mission.activite }}"
           echo "Type de destination : ${{ matrix.mission.type }}"
           echo "=== Fin de la mission ==="
+
+  demandes_president:
+    needs: missions
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        nom: [Mars, Lune, Vénus]
+        include:
+          - nom: Mars
+            equipement_special: "Space Burger"
+            commentaire: "Pour maintenir le moral de l'équipage"
+          - nom: Lune
+            equipement_special: "Télescope pour observer les aliens"
+            commentaire: "Parce que les aliens existent, c'est sûr !"
+
+    steps:
+      - name: Demandes spéciales pour ${{ matrix.nom }}
+        run: |
+          echo "=== Demandes spéciales du Président pour ${{ matrix.nom }} ==="
+          echo "Équipement spécial : ${{ matrix.equipement_special || 'Pas besoin' }}"
+          echo "Commentaire : ${{ matrix.commentaire || 'Aucun commentaire' }}"
+          echo "=== Fin des demandes spéciales ==="
