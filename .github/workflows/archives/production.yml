@@ -1,7 +1,9 @@
 name: production workflow
 on:
   push:
-    branches: main
+    branches:
+      - main
+      - staging
 
 jobs:
   deploy-production:
