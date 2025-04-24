@@ -10,7 +10,7 @@ jobs:
       - run: |
           echo "GITHUB_TOKEN: $GITHUB_TOKEN"
           echo "Contexte secrets: ${{ secrets.GITHUB_TOKEN }}"
-      - run: actions/checkout@v4
+      - uses: actions/checkout@v4
       - run: |
           echo 123 > test3.txt
           git config --global user.email "action@github.com"
