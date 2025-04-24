@@ -21,14 +21,21 @@ name: Workflow Réutilisable
 
 on:
   workflow_call:
+    # inputs optionnels
     inputs:
-      # Définition des inputs
-    secrets:
-      # Définition des secrets
+      working-directory:
+        required: true
+        type: string
+        description: "Répertoire de travail (client ou server)"
 
 jobs:
-  job-name:
-    # Configuration du job
+  check-code:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ${{ inputs.working-directory }}
+    steps:
+    # ... suite des steps et jobs
 ```
 
 ## 📝 Étapes de réalisation
