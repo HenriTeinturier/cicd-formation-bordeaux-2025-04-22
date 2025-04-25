@@ -44,7 +44,7 @@ Pour les chapitres avancés du cours, nous utiliserons une application complète
 
 #### Solutions finales
 
-1. [Projet1-cicd-final](https://github.com/HenriTeinturier/projet1-cicd-final) : Version avec déploiement simple sur VPS
+1. [Projet1-cicd-final](https://github.com/HenriTeinturier/cicd-formation-bordeaux-2025-04-projet-final-1) : Version avec déploiement simple sur VPS
 2. [Projet2-cicd-final](https://github.com/HenriTeinturier/projet2-cicd-final) : Version avancée avec :
    - Nginx en reverse proxy
    - Configuration Docker
