@@ -1,0 +1,32 @@
+name: Services
+on: push
+
+jobs:
+  test-services:
+    runs-on: ubuntu-latest
+    services:
+      redis:
+        image: redis:latest
+        ports:
+	        # on expose les ports pour envoyer 
+	        #localhost:6379 
+	        #vers le port 6379 de notre service.
+          - 6379:6379
+        options: >-
+          --health-cmd "redis-cli ping"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 
+    steps:
+    - name: installation redis-cli
+      # -y pour accepter les prompts
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y redis-tools
+
+    - run: |
+        echo 'test connexion' $(redis-cli -h localhost PING)
+        redis-cli -h localhost SET user:1 '{"id":1,"name":"Henri"}'
+        redis-cli -h localhost SET user:2 '{"id":2,"name":"Alice"}'
+        echo "user 1: $(redis-cli -h localhost GET user:1)"
+        echo "user 2: $(redis-cli -h localhost GET user:2)"
