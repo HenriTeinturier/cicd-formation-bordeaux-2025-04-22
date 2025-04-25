@@ -1,0 +1,18 @@
+name: Test and Install Dependencies
+
+on:
+  workflow_call:
+
+jobs:
+  test-and-install:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        run: echo checkout
+
+      - name: Install dependencies
+        run: echo "npm install"
+
+      - name: Run tests
+        run: echo "npm test"
