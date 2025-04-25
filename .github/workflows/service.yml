@@ -13,7 +13,9 @@ jobs:
           --health-cmd "redis-cli ping"
           --health-interval 10s
           --health-timeout 5s
-          --health-retries
+          --health-retries 3
+          --entrypoint redis-server
+          --appendonly yes
     steps:
       - name: installation redis-cli
         run: |
